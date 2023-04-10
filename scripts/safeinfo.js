@@ -1,18 +1,17 @@
 #! /usr/bin/env node
 import * as dotenv from "dotenv";
+for (const name of [".env", ".env.keys", ".env.api-keys"]) {
+  dotenv.config({path: path.resolve(process.cwd(), name)});
+}
 import path from "path";
 
 import { ethers } from 'ethers';
-import { EthersAdapter, Safe, SafeServiceClient, SafeAccountConfig } from "../src/safecoresdk.js";
+import { EthersAdapter, SafeServiceClient } from "../src/safecoresdk.js";
 
-dotenv.config({path: path.resolve(process.cwd(), '.env.keys')});
-dotenv.config({path: path.resolve(process.cwd(), '.env')});
+const txServiceUrl = process.env.TX_SERVICE_URL;
 
-
-const txServiceUrl = "https://safe-transaction-optimism.safe.global/";
-// const RPC_URL='https://eth-goerli.public.blastapi.io'
-// const RPC_URL='https://endpoints.omniatech.io/v1/op/mainnet/public';
-const RPC_URL='https://opt-mainnet.g.alchemy.com/v2/nf2PP059oQdMP925TyFvyU0vl5N766MS'
+const RPC_URL=process.env.RPC_URL;
+console.log(`RPC_URL: ${RPC_URL}`);
 const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 
 const OPTIMISIM_CHAINID = 10;

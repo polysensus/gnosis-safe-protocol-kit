@@ -5,13 +5,16 @@ import path from "path";
 import { ethers } from 'ethers';
 import { EthersAdapter, SafeFactory } from "../src/safecoresdk.js";
 
-dotenv.config({path: path.resolve(process.cwd(), '.env.keys')});
+for (const name of [".env", ".env.keys", ".env.api-keys"]) {
+  dotenv.config({path: path.resolve(process.cwd(), name)});
+}
 
 // const txServiceUrl = 'https://safe-transaction-goerli.safe.global';
-const txServiceUrl = https://safe-transaction-optimism.safe.global/
-// https://chainlist.org/?search=goerli&testnets=true
-// const RPC_URL='https://eth-goerli.public.blastapi.io'
-const RPC_URL='https://endpoints.omniatech.io/v1/op/mainnet/public';
+const txServiceUrl = 'https://safe-transaction-optimism.safe.global/';
+
+const RPC_URL=process.env.RPC_URL;
+console.log(`RPC_URL: ${RPC_URL}`);
+
 const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 
 // Initialize signers
