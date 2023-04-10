@@ -6,6 +6,8 @@
 * https://app.optimism.io/bridge/deposit
 
 * Need to manually create package.json - that is not in the guide
+* it is definitely possible to deploy the full gnosis safe contract set to any chain (including RRR)
+    * https://github.com/safe-global/safe-core-sdk/blob/main/guides/integrating-the-safe-core-sdk.md
 
 ## References
 

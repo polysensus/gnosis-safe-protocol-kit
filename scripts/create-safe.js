@@ -3,11 +3,12 @@ import * as dotenv from "dotenv";
 import path from "path";
 
 import { ethers } from 'ethers';
-import { EthersAdapter, SafeFactory, SafeServiceClient, SafeAccountConfig } from "../src/safecoresdk.js";
+import { EthersAdapter, SafeFactory } from "../src/safecoresdk.js";
 
 dotenv.config({path: path.resolve(process.cwd(), '.env.keys')});
 
-const txServiceUrl = 'https://safe-transaction-goerli.safe.global';
+// const txServiceUrl = 'https://safe-transaction-goerli.safe.global';
+const txServiceUrl = https://safe-transaction-optimism.safe.global/
 // https://chainlist.org/?search=goerli&testnets=true
 // const RPC_URL='https://eth-goerli.public.blastapi.io'
 const RPC_URL='https://endpoints.omniatech.io/v1/op/mainnet/public';
